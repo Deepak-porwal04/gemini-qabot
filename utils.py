@@ -1,7 +1,7 @@
 import streamlit as st
 import logging
 import google.generativeai as gai
-def get_response(chat: gai.chat, prompt: str) -> str:
+def get_response(chat, prompt):
     """
     Sends a prompt to the provided GenerativeAI Chat object and returns the text response in chunks.
 
@@ -20,7 +20,7 @@ def get_response(chat: gai.chat, prompt: str) -> str:
     response = chat.send_message(prompt, stream=True)  # Send prompt for chunked response
     return response
 
-def handle_user_query(chat: gai.chat, input: str, session_state: st.session_state) -> None:
+def handle_user_query(chat, input, session_state):
     """
     Processes user input, generates a response using the provided chat object, and updates the chat history.
 
